@@ -3,7 +3,6 @@ title: Alto Mission Control Project
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell 
-  - shell 
   - javascript
 
 toc_footers:
@@ -12,6 +11,7 @@ toc_footers:
 
 includes:
   - errors
+  - images.md.erb
 
 search: true
 ---
@@ -39,15 +39,6 @@ npm start
 
 ```
 
-```shell 
-# With shell, you can just pass the correct header with each request
-git clone https://github.com/altojulyspaceproject/Alto-July-Space-Project.git
-
-cd Alto-July-space-Project.git
-npm install
-npm start
-```
-
 # Usage
 
 There are two main use cases for the MC software developed. 
@@ -69,3 +60,17 @@ Press 'Track'
 
 
 
+
+# Ground Station Tracking (Hamlib Library)
+
+Include some details about the bash scripts here
+
+
+
+# Software Architecture 
+
+Insert some photos 
+
+
+ 
+<%= image_tag "images/AMCP-Component-Diagram.jpeg" %>
