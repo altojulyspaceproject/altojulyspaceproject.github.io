@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;shell&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,7 +211,6 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="javascript">javascript</a>
         </div>
@@ -228,6 +227,12 @@
           </li>
           <li>
             <a href="#usage" class="toc-h1 toc-link" data-title="Usage">Usage</a>
+          </li>
+          <li>
+            <a href="#ground-station-tracking-hamlib-library" class="toc-h1 toc-link" data-title="Ground Station Tracking (Hamlib Library)">Ground Station Tracking (Hamlib Library)</a>
+          </li>
+          <li>
+            <a href="#software-architecture" class="toc-h1 toc-link" data-title="Software Architecture">Software Architecture</a>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -259,12 +264,6 @@ git clone https://github.com/altojulyspaceproject/Alto-July-Space-Project.git
 npm install
 npm start
 
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-git clone https://github.com/altojulyspaceproject/Alto-July-Space-Project.git
-
-<span class="nb">cd </span>Alto-July-space-Project.git
-npm install
-npm start
 </code></pre><h1 id='usage'>Usage</h1>
 <p>There are two main use cases for the MC software developed. 
 NASA openMCT usage
@@ -282,6 +281,12 @@ Direct Page Usage</p>
 Enter NORAD ID to be tracked e.g. 25544 for ISS </p>
 
 <p>Press &#39;Track&#39;</p>
+<h1 id='ground-station-tracking-hamlib-library'>Ground Station Tracking (Hamlib Library)</h1>
+<p>Include some details about the bash scripts here</p>
+<h1 id='software-architecture'>Software Architecture</h1>
+<p>Insert some photos </p>
+
+<p><img src="images/images/AMCP-Component-Diagram.jpeg" alt="Amcp component diagram" /></p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
@@ -344,7 +349,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="javascript">javascript</a>
           </div>
