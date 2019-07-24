@@ -2,8 +2,8 @@
 title: Alto Mission Control Project 
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell (local)
-  - shell (AWS)
+  - shell 
+  - shell 
   - javascript
 
 toc_footers:
@@ -29,7 +29,7 @@ Requirements: Node.js
 
 > To Setup, use this code:
 
-```shell (local)
+```shell 
 # With shell, you can just pass the correct header with each request
 git clone https://github.com/altojulyspaceproject/Alto-July-Space-Project.git
 
@@ -39,7 +39,7 @@ npm start
 
 ```
 
-```shell (AWS)
+```shell 
 # With shell, you can just pass the correct header with each request
 git clone https://github.com/altojulyspaceproject/Alto-July-Space-Project.git
 
