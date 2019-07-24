@@ -10,7 +10,7 @@ toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - errors
+  #- errors
 
 search: true
 ---
@@ -32,7 +32,7 @@ Requirements: Node.js
 # With shell, you can just pass the correct header with each request
 git clone https://github.com/altojulyspaceproject/Alto-July-Space-Project.git
 
-cd Alto-July-space-Project.git
+cd Alto-July-space-Project
 npm install
 npm start
 
@@ -45,14 +45,22 @@ NASA openMCT usage
 Direct Page Usage
 
 Using openMCT:
+
+
 1. Using web browser navigate to localhost:8080
+
 2. Create a new webpage using openMCT modues
+
 3. Add 'UserInput.html' as webpage module.
 
+
+
 Using Direct Page 
+
 1. Browse to localhost:8080/UserInput.html
 
 Once navigated to, login using spacetrack account
+
 Enter NORAD ID to be tracked e.g. 25544 for ISS 
 
 Press 'Track'
@@ -66,10 +74,34 @@ Include some details about the bash scripts here
 
 
 
+# AWS Deployment
+
+Handover process
+
+AWS Architecture 
+
+
+
 # Software Architecture 
 
-Insert some photos 
-
-
- 
+Basic Component Diagram
 <%= image_tag "AMCP-Component-Diagram.jpeg" %>
+
+
+
+# Further Readings
+
+TLE Data: 
+
+# Important Concepts 
+
+Satellite Footprint : 
+
+A satellite being tracked as it orbits the earth needs to be in direct line of sight with a ground station in order to be detected, and to send or recieving signals. A detector on the ground will have direct line of sight with the satellite when it is within the ‘footprint’ of the satellite. The footprint is a projection of the area on a map that can has direct line of sight with a satellite. The link below shows a 3D toy model of this, where a vector points to the object in question and a plane divides the sphere into that part of the sphere from which the satellite can and cannot be seen (feel free to play with the sliders).
+
+https://www.geogebra.org/3d/fqgdpnfz
+
+This footprint can be represented by the 2D image below, where the horribly drawn circle is meant to represent a 2D even slice of the earth. The footprint can be represented by the distance to the edge of the footprint, swept around sphere, creating a circle of footprint, within which a ground station can see the satellite.
+
+<%= image_tag "Footprint-Description-Adrian.jpg" %>
+
