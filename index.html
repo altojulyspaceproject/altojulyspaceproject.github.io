@@ -254,6 +254,18 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the Alto Mission Control (MC) documenation! This documentation will describe the setup instructions and requirements for the Mission Control system developed as part of the July Alto Training Program.</p>
+
+<p>Features:</p>
+
+<p>Tracking of any Satellite with NORAD ID</p>
+
+<p>Orbital path for +/- 90 minutes</p>
+
+<p>Heads up display of Satellite information for operational analysis</p>
+
+<p>Tracking Algorithm plugin with &#39;HamLib&#39; library for control of tilt-pan radio. </p>
+
+<p><img src="images/AMCP-Screenshot.png" alt="Amcp screenshot" /></p>
 <h1 id='setup-guide'>Setup Guide</h1>
 <p>The Alto Mission Control supports two deployment methods. Local and AWS.</p>
 
@@ -263,7 +275,7 @@
 <blockquote>
 <p>To Setup, use this code:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+<pre class="highlight shell tab-shell"><code><span class="c"># First navigate to the desired install location then:</span>
 git clone https://github.com/altojulyspaceproject/Alto-July-Space-Project.git
 
 <span class="nb">cd </span>Alto-July-space-Project
@@ -300,6 +312,136 @@ Direct Page Usage</p>
 <p>Handover process</p>
 
 <p>AWS Architecture </p>
+
+<blockquote>
+<p>Creating IAM Roles
+Basically, a good way to give permissions to entities you trust (like other AWS services) They are more secure because they only issue keys for a short duration. Think of it as one-time access cards for guests that visit your building.</p>
+</blockquote>
+
+<p>Go to IAM control panel</p>
+
+<p>Go to roles</p>
+
+<p>Select the type of entity based on your needs </p>
+
+<p>Select the policies you want this IAM role to have</p>
+
+<p>e.g. if you want the role to be able to access AWS CodeDeploy, this is where you add it in</p>
+
+<p>Tag it however you want</p>
+
+<p>After you’ve created the role</p>
+
+<p>you need to edit the trust relationships, which allows you to edit which entity can assume this IAM role you just created.</p>
+
+<p>.e.g if you want codeDeploy to be able to assume the role, you add in codedeploy.amazonaws.com</p>
+
+<p>donezo, now you can assign this role to stuff, like EC2 instances</p>
+
+<p>Creating an instance
+Basically servers for your application or website.</p>
+
+<p>Go to EC2 control panel</p>
+
+<p>Select launch instance</p>
+
+<p>AIM and Instance type are dependent on your needs, can just go with the free tier</p>
+
+<p>In configure instance</p>
+
+<p>For network and subnet: choose the VPC and subnet you want (see guide above)</p>
+
+<p>Choose IAM roles depending on what you created (see guide above)</p>
+
+<p>In advance details, you can add scripts to be run as the instance boots up</p>
+
+<p>In configure security group</p>
+
+<p>This is like the firewall configs for your instance, can create a new one or choose the one you made before ( see guide above)</p>
+
+<p>key pairs</p>
+
+<p>this is the key needed to access your system via ssh (and other connections), either make a new one if you want more security or use an existing one.</p>
+
+<p>add a new Elastic IP and assign it to the EC2</p>
+
+<p>It&#39;s in EC2 dashboard, under network &amp; security</p>
+
+<p>After ‘allocate new address’, need to go to ‘actions’ tab and then ‘associate address’ and assign it to the EC2</p>
+
+<p>can add scripts to run when the EC2 is created or just type in the commands below</p>
+<pre class="highlight shell tab-shell"><code>
+<span class="c">#!/bin/bash</span>
+sudo yum update -y
+sudo yum install git -y
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+<span class="nb">export </span><span class="nv">NVM_DIR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.nvm"</span>
+<span class="o">[</span> -s <span class="s2">"</span><span class="nv">$NVM_DIR</span><span class="s2">/nvm.sh"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="se">\.</span> <span class="s2">"</span><span class="nv">$NVM_DIR</span><span class="s2">/nvm.sh"</span>  <span class="c"># This loads nvm</span>
+<span class="o">[</span> -s <span class="s2">"</span><span class="nv">$NVM_DIR</span><span class="s2">/bash_completion"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="se">\.</span> <span class="s2">"</span><span class="nv">$NVM_DIR</span><span class="s2">/bash_completion"</span>  <span class="c"># This loads nvm bash_completion</span>
+nvm install node
+
+<span class="c">#to install cloudagent need to add policy to the role</span>
+sudo yum install ruby -y
+sudo yum install wget -y
+<span class="nb">cd</span> /home/ec2-user
+wget https://aws-codedeploy-ap-southeast-2.s3.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+
+</code></pre>
+<p>Creating a pipeline
+Create codeDeploy application via codeDeploy control panel</p>
+
+<p>compute platform is EC2</p>
+
+<p>then create a deployment group inside that codeDeploy app</p>
+
+<p>Service role is which IAM role you want to use (see guide above)</p>
+
+<p>dont forget to add the codedeploy and s3 policy to the role</p>
+
+<p>Environment config - choose EC2 instance</p>
+
+<p>the tag group 1 value should be the EC2 machine you want this app to run on</p>
+
+<p>Now we can create a deployment (for single deployments) or next step to create the pipeline</p>
+
+<p>Choose Application is stored in GitHub (if its stored on github)</p>
+
+<p>connect and input the commit id you want this deployment to pull from</p>
+
+<p>FOR THIS TO WORK, need to install codedeploy agent on the EC2 instance</p>
+
+<p>https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html</p>
+
+<p>https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-ec2-create.html</p>
+<pre class="highlight shell tab-shell"><code><span class="c">#!/bin/bash</span>
+sudo yum install ruby -y
+sudo yum install wget -y
+<span class="nb">cd</span> /home/ec2-user
+wget https://aws-codedeploy-ap-southeast-2.s3.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+create codePipeline 
+
+</code></pre>
+<p>choose new service role, which will automatically create the service role for you</p>
+
+<p>source provider is github (if you want it to deploy as github branch updates</p>
+
+<p>use webhooks</p>
+
+<p>can choose the branch you want to use</p>
+
+<p>can skip build stage if you want</p>
+
+<p>choose codeDeploy as the deploy provider</p>
+
+<p>choose the application you created in step 1</p>
+
+<p>choose the application group you created in step 1</p>
+
+<p>it should run the pipeline when you first create it</p>
 <h1 id='software-architecture'>Software Architecture</h1>
 <p>Basic Component Diagram
 <img src="images/AMCP-Component-Diagram.jpeg" alt="Amcp component diagram" /></p>
