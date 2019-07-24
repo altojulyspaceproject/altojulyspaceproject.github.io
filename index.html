@@ -221,18 +221,42 @@
       <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#features" class="toc-h2 toc-link" data-title="Features:">Features:</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#setup-guide" class="toc-h1 toc-link" data-title="Setup Guide">Setup Guide</a>
           </li>
           <li>
             <a href="#usage" class="toc-h1 toc-link" data-title="Usage">Usage</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#using-openmct" class="toc-h2 toc-link" data-title="Using openMCT:">Using openMCT:</a>
+                  </li>
+                  <li>
+                    <a href="#using-direct-page" class="toc-h2 toc-link" data-title="Using Direct Page">Using Direct Page</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#ground-station-tracking-hamlib-library" class="toc-h1 toc-link" data-title="Ground Station Tracking (Hamlib Library)">Ground Station Tracking (Hamlib Library)</a>
           </li>
           <li>
             <a href="#aws-deployment" class="toc-h1 toc-link" data-title="AWS Deployment">AWS Deployment</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#handover-process" class="toc-h2 toc-link" data-title="Handover process">Handover process</a>
+                  </li>
+                  <li>
+                    <a href="#aws-architecture" class="toc-h2 toc-link" data-title="AWS Architecture">AWS Architecture</a>
+                  </li>
+                  <li>
+                    <a href="#creating-iam-roles" class="toc-h2 toc-link" data-title="Creating IAM Roles">Creating IAM Roles</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#software-architecture" class="toc-h1 toc-link" data-title="Software Architecture">Software Architecture</a>
@@ -254,9 +278,7 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the Alto Mission Control (MC) documenation! This documentation will describe the setup instructions and requirements for the Mission Control system developed as part of the July Alto Training Program.</p>
-
-<p>Features:</p>
-
+<h2 id='features'>Features:</h2>
 <p>Tracking of any Satellite with NORAD ID</p>
 
 <p>Orbital path for +/- 90 minutes</p>
@@ -286,17 +308,13 @@ npm start
 <p>There are two main use cases for the MC software developed. 
 NASA openMCT usage
 Direct Page Usage</p>
-
-<p>Using openMCT:</p>
-
+<h2 id='using-openmct'>Using openMCT:</h2>
 <ol>
 <li><p>Using web browser navigate to localhost:8080</p></li>
 <li><p>Create a new webpage using openMCT modues</p></li>
 <li><p>Add &#39;UserInput.html&#39; as webpage module.</p></li>
 </ol>
-
-<p>Using Direct Page </p>
-
+<h2 id='using-direct-page'>Using Direct Page</h2>
 <ol>
 <li>Browse to localhost:8080/UserInput.html</li>
 </ol>
@@ -308,15 +326,8 @@ Direct Page Usage</p>
 <p>Press &#39;Track&#39;</p>
 <h1 id='ground-station-tracking-hamlib-library'>Ground Station Tracking (Hamlib Library)</h1>
 <p>Include some details about the bash scripts here</p>
-<h1 id='aws-deployment'>AWS Deployment</h1>
-<p>Handover process</p>
-
-<p>AWS Architecture </p>
-
-<blockquote>
-<p>Creating IAM Roles
-Basically, a good way to give permissions to entities you trust (like other AWS services) They are more secure because they only issue keys for a short duration. Think of it as one-time access cards for guests that visit your building.</p>
-</blockquote>
+<h1 id='aws-deployment'>AWS Deployment</h1><h2 id='handover-process'>Handover process</h2><h2 id='aws-architecture'>AWS Architecture</h2><h2 id='creating-iam-roles'>Creating IAM Roles</h2>
+<p>Basically, a good way to give permissions to entities you trust (like other AWS services) They are more secure because they only issue keys for a short duration. Think of it as one-time access cards for guests that visit your building.</p>
 
 <p>Go to IAM control panel</p>
 
