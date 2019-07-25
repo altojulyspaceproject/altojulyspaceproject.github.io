@@ -239,10 +239,18 @@
                   <li>
                     <a href="#using-direct-page" class="toc-h2 toc-link" data-title="Using Direct Page">Using Direct Page</a>
                   </li>
+                  <li>
+                    <a href="#user" class="toc-h2 toc-link" data-title="User">User</a>
+                  </li>
               </ul>
           </li>
           <li>
             <a href="#ground-station-tracking-hamlib-library" class="toc-h1 toc-link" data-title="Ground Station Tracking (Hamlib Library)">Ground Station Tracking (Hamlib Library)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#how-to-use" class="toc-h2 toc-link" data-title="How to use:">How to use:</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#aws-deployment" class="toc-h1 toc-link" data-title="AWS Deployment">AWS Deployment</a>
@@ -260,12 +268,27 @@
           </li>
           <li>
             <a href="#software-architecture" class="toc-h1 toc-link" data-title="Software Architecture">Software Architecture</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#basic-component-diagram" class="toc-h2 toc-link" data-title="Basic Component Diagram">Basic Component Diagram</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#further-readings" class="toc-h1 toc-link" data-title="Further Readings">Further Readings</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#tle-data" class="toc-h2 toc-link" data-title="TLE Data:">TLE Data:</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#important-concepts" class="toc-h1 toc-link" data-title="Important Concepts">Important Concepts</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#satellite-footprint" class="toc-h2 toc-link" data-title="Satellite Footprint :">Satellite Footprint :</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -318,14 +341,48 @@ Direct Page Usage</p>
 <ol>
 <li>Browse to localhost:8080/UserInput.html</li>
 </ol>
-
+<h2 id='user'>User</h2>
 <p>Once navigated to, login using spacetrack account</p>
 
 <p>Enter NORAD ID to be tracked e.g. 25544 for ISS </p>
 
 <p>Press &#39;Track&#39;</p>
 <h1 id='ground-station-tracking-hamlib-library'>Ground Station Tracking (Hamlib Library)</h1>
-<p>Include some details about the bash scripts here</p>
+<p>As a proof of concept a shell script has been written to change the orientation of the antenna based on an Azimuth and Elevation. This script utilises the rotctl functions built in dummy model and changes the orientation from [0,0] to the given orientation using the HamLib commands \set_pos and \get_pos.</p>
+
+<p>Important notes:</p>
+
+<p>the dummy model always starts at zero each time the script runs </p>
+
+<p>the script is currently only capable of outputting the numbers in the command line</p>
+
+<p>azimuth should be between -180 and 180</p>
+
+<p>elevation should be between 0 and 90</p>
+
+<p>numbers are floating point</p>
+
+<p>the current script will print for a set number of times even if the antenna has stopped moving </p>
+<h2 id='how-to-use'>How to use:</h2>
+<p>make sure you are in the correct directory (line 1 “pwd”)</p>
+
+<p>if not cd Alto-July-Space-Project</p>
+
+<blockquote>
+<p>to run the script type “sh antPosSet.sh” “Azimuth” “Elevation” where and Elevation are 2 numbers in degrees. (line 3)</p>
+
+<p>Azimuth and Elevation can also be entered as floating point numbers (second screenshot)</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># First navigate to the project directory</span>
+<span class="nb">cd </span>Alto-July-space-Project
+
+
+sh antPosSet.sh” “Azimuth” “Elevation” 
+
+</code></pre>
+<p><img src="images/StephSS1.png" alt="Stephss1" /></p>
+
+<p><img src="images/StephSS2.png" alt="Stephss2" /></p>
 <h1 id='aws-deployment'>AWS Deployment</h1><h2 id='handover-process'>Handover process</h2><h2 id='aws-architecture'>AWS Architecture</h2><h2 id='creating-iam-roles'>Creating IAM Roles</h2>
 <p>Basically, a good way to give permissions to entities you trust (like other AWS services) They are more secure because they only issue keys for a short duration. Think of it as one-time access cards for guests that visit your building.</p>
 
@@ -453,14 +510,9 @@ create codePipeline
 <p>choose the application group you created in step 1</p>
 
 <p>it should run the pipeline when you first create it</p>
-<h1 id='software-architecture'>Software Architecture</h1>
-<p>Basic Component Diagram
-<img src="images/AMCP-Component-Diagram.jpeg" alt="Amcp component diagram" /></p>
-<h1 id='further-readings'>Further Readings</h1>
-<p>TLE Data: </p>
-<h1 id='important-concepts'>Important Concepts</h1>
-<p>Satellite Footprint : </p>
-
+<h1 id='software-architecture'>Software Architecture</h1><h2 id='basic-component-diagram'>Basic Component Diagram</h2>
+<p><img src="images/AMCP-Component-Diagram.jpeg" alt="Amcp component diagram" /></p>
+<h1 id='further-readings'>Further Readings</h1><h2 id='tle-data'>TLE Data:</h2><h1 id='important-concepts'>Important Concepts</h1><h2 id='satellite-footprint'>Satellite Footprint :</h2>
 <p>A satellite being tracked as it orbits the earth needs to be in direct line of sight with a ground station in order to be detected, and to send or recieving signals. A detector on the ground will have direct line of sight with the satellite when it is within the ‘footprint’ of the satellite. The footprint is a projection of the area on a map that can has direct line of sight with a satellite. The link below shows a 3D toy model of this, where a vector points to the object in question and a plane divides the sphere into that part of the sphere from which the satellite can and cannot be seen (feel free to play with the sliders).</p>
 
 <p>https://www.geogebra.org/3d/fqgdpnfz</p>
