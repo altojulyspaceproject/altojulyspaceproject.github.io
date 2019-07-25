@@ -267,9 +267,6 @@
             <a href="#aws-deployment" class="toc-h1 toc-link" data-title="AWS Deployment">AWS Deployment</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#handover-process" class="toc-h2 toc-link" data-title="Handover process">Handover process</a>
-                  </li>
-                  <li>
                     <a href="#aws-architecture" class="toc-h2 toc-link" data-title="AWS Architecture">AWS Architecture</a>
                   </li>
                   <li>
@@ -390,7 +387,9 @@ sh antPosSet.sh” “Azimuth” “Elevation”
 <p><img src="images/AMCP-Component-Diagram.jpeg" alt="Amcp component diagram" /></p>
 <h2 id='basic-activity-diagram'>Basic Activity Diagram</h2>
 <p><img src="images/Alto-Mission-Control-Activity-Diagram.jpeg" alt="Alto mission control activity diagram" /></p>
-<h1 id='aws-deployment'>AWS Deployment</h1><h2 id='handover-process'>Handover process</h2><h2 id='aws-architecture'>AWS Architecture</h2><h2 id='creating-iam-roles'>Creating IAM Roles</h2>
+<h1 id='aws-deployment'>AWS Deployment</h1><h2 id='aws-architecture'>AWS Architecture</h2>
+<p><img src="images/AMCP-Network-Diagram+Pipeline.jpeg" alt="Amcp network diagram+pipeline" /></p>
+<h2 id='creating-iam-roles'>Creating IAM Roles</h2>
 <p>Basically, a good way to give permissions to entities you trust (like other AWS services) They are more secure because they only issue keys for a short duration. Think of it as one-time access cards for guests that visit your building.</p>
 
 <p>Go to IAM control panel</p>
@@ -517,7 +516,23 @@ create codePipeline
 <p>choose the application group you created in step 1</p>
 
 <p>it should run the pipeline when you first create it</p>
-<h1 id='further-readings'>Further Readings</h1><h2 id='tle-data'>TLE Data:</h2><h1 id='important-concepts'>Important Concepts</h1><h2 id='satellite-footprint'>Satellite Footprint :</h2>
+<h1 id='further-readings'>Further Readings</h1><h2 id='tle-data'>TLE Data:</h2>
+<p>There are five perturbation models used to convert TLE’s into useful orbital location information:</p>
+
+<p>-SGP</p>
+
+<p>-SGP4</p>
+
+<p>-SDP4</p>
+
+<p>-SGP8</p>
+
+<p>-SDP8</p>
+
+<p>For objects with an orbital period (time to do one full orbit) of less than 225 minutes, the SGP model is used.</p>
+
+<p>https://celestrak.com/NORAD/documentation/spacetrk.pdf </p>
+<h1 id='important-concepts'>Important Concepts</h1><h2 id='satellite-footprint'>Satellite Footprint :</h2>
 <p>A satellite being tracked as it orbits the earth needs to be in direct line of sight with a ground station in order to be detected, and to send or recieving signals. A detector on the ground will have direct line of sight with the satellite when it is within the ‘footprint’ of the satellite. The footprint is a projection of the area on a map that can has direct line of sight with a satellite. The link below shows a 3D toy model of this, where a vector points to the object in question and a plane divides the sphere into that part of the sphere from which the satellite can and cannot be seen (feel free to play with the sliders).</p>
 
 <p>https://www.geogebra.org/3d/fqgdpnfz</p>
