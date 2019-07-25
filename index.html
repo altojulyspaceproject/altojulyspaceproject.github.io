@@ -253,6 +253,17 @@
               </ul>
           </li>
           <li>
+            <a href="#software-architecture" class="toc-h1 toc-link" data-title="Software Architecture">Software Architecture</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#basic-component-diagram" class="toc-h2 toc-link" data-title="Basic Component Diagram">Basic Component Diagram</a>
+                  </li>
+                  <li>
+                    <a href="#basic-activity-diagram" class="toc-h2 toc-link" data-title="Basic Activity Diagram">Basic Activity Diagram</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#aws-deployment" class="toc-h1 toc-link" data-title="AWS Deployment">AWS Deployment</a>
               <ul class="toc-list-h2">
                   <li>
@@ -263,14 +274,6 @@
                   </li>
                   <li>
                     <a href="#creating-iam-roles" class="toc-h2 toc-link" data-title="Creating IAM Roles">Creating IAM Roles</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#software-architecture" class="toc-h1 toc-link" data-title="Software Architecture">Software Architecture</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#basic-component-diagram" class="toc-h2 toc-link" data-title="Basic Component Diagram">Basic Component Diagram</a>
                   </li>
               </ul>
           </li>
@@ -376,13 +379,17 @@ Direct Page Usage</p>
 <pre class="highlight shell tab-shell"><code><span class="c"># First navigate to the project directory</span>
 <span class="nb">cd </span>Alto-July-space-Project
 
-
+<span class="c">#run the shell command</span>
 sh antPosSet.sh” “Azimuth” “Elevation” 
 
 </code></pre>
 <p><img src="images/StephSS1.png" alt="Stephss1" /></p>
 
 <p><img src="images/StephSS2.png" alt="Stephss2" /></p>
+<h1 id='software-architecture'>Software Architecture</h1><h2 id='basic-component-diagram'>Basic Component Diagram</h2>
+<p><img src="images/AMCP-Component-Diagram.jpeg" alt="Amcp component diagram" /></p>
+<h2 id='basic-activity-diagram'>Basic Activity Diagram</h2>
+<p><img src="images/Alto-Mission-Control-Activity-Diagram.jpeg" alt="Alto mission control activity diagram" /></p>
 <h1 id='aws-deployment'>AWS Deployment</h1><h2 id='handover-process'>Handover process</h2><h2 id='aws-architecture'>AWS Architecture</h2><h2 id='creating-iam-roles'>Creating IAM Roles</h2>
 <p>Basically, a good way to give permissions to entities you trust (like other AWS services) They are more secure because they only issue keys for a short duration. Think of it as one-time access cards for guests that visit your building.</p>
 
@@ -510,8 +517,6 @@ create codePipeline
 <p>choose the application group you created in step 1</p>
 
 <p>it should run the pipeline when you first create it</p>
-<h1 id='software-architecture'>Software Architecture</h1><h2 id='basic-component-diagram'>Basic Component Diagram</h2>
-<p><img src="images/AMCP-Component-Diagram.jpeg" alt="Amcp component diagram" /></p>
 <h1 id='further-readings'>Further Readings</h1><h2 id='tle-data'>TLE Data:</h2><h1 id='important-concepts'>Important Concepts</h1><h2 id='satellite-footprint'>Satellite Footprint :</h2>
 <p>A satellite being tracked as it orbits the earth needs to be in direct line of sight with a ground station in order to be detected, and to send or recieving signals. A detector on the ground will have direct line of sight with the satellite when it is within the ‘footprint’ of the satellite. The footprint is a projection of the area on a map that can has direct line of sight with a satellite. The link below shows a 3D toy model of this, where a vector points to the object in question and a plane divides the sphere into that part of the sphere from which the satellite can and cannot be seen (feel free to play with the sliders).</p>
 
