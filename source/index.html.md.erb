@@ -145,12 +145,11 @@ sh antPosSet.sh” “Azimuth” “Elevation”
 <%= image_tag "Alto-Mission-Control-Activity-Diagram.jpeg" %>
 
 
-
 # AWS Deployment
 
-## Handover process
+## AWS Architecture
 
-## AWS Architecture 
+<%= image_tag "AMCP-Network-Diagram+Pipeline.jpeg" %>
 
 ## Creating IAM Roles
 Basically, a good way to give permissions to entities you trust (like other AWS services) They are more secure because they only issue keys for a short duration. Think of it as one-time access cards for guests that visit your building.
@@ -291,6 +290,22 @@ it should run the pipeline when you first create it
 # Further Readings
 
 ## TLE Data: 
+
+There are five perturbation models used to convert TLE’s into useful orbital location information:
+
+-SGP
+
+-SGP4
+
+-SDP4
+
+-SGP8
+
+-SDP8
+
+For objects with an orbital period (time to do one full orbit) of less than 225 minutes, the SGP model is used.
+
+https://celestrak.com/NORAD/documentation/spacetrk.pdf 
 
 # Important Concepts 
 
