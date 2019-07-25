@@ -74,6 +74,8 @@ Direct Page Usage
 
 1. Browse to localhost:8080/UserInput.html
 
+## User
+
 Once navigated to, login using spacetrack account
 
 Enter NORAD ID to be tracked e.g. 25544 for ISS 
@@ -85,7 +87,51 @@ Press 'Track'
 
 # Ground Station Tracking (Hamlib Library)
 
-Include some details about the bash scripts here
+As a proof of concept a shell script has been written to change the orientation of the antenna based on an Azimuth and Elevation. This script utilises the rotctl functions built in dummy model and changes the orientation from [0,0] to the given orientation using the HamLib commands \set_pos and \get_pos.
+
+Important notes:
+
+the dummy model always starts at zero each time the script runs 
+
+the script is currently only capable of outputting the numbers in the command line
+
+azimuth should be between -180 and 180
+
+elevation should be between 0 and 90
+
+numbers are floating point
+
+the current script will print for a set number of times even if the antenna has stopped moving 
+
+ 
+
+## How to use:
+
+ make sure you are in the correct directory (line 1 “pwd”)
+
+if not cd Alto-July-Space-Project
+
+> to run the script type “sh antPosSet.sh” “Azimuth” “Elevation” where and Elevation are 2 numbers in degrees. (line 3)
+
+> Azimuth and Elevation can also be entered as floating point numbers (second screenshot)
+
+
+
+```shell 
+# First navigate to the project directory
+cd Alto-July-space-Project
+
+
+sh antPosSet.sh” “Azimuth” “Elevation” 
+
+```
+
+<%= image_tag "StephSS1.png" %>
+
+
+<%= image_tag "StephSS2.png" %>
+
+
 
 
 
@@ -233,18 +279,18 @@ it should run the pipeline when you first create it
 
 # Software Architecture 
 
-Basic Component Diagram
+## Basic Component Diagram
 <%= image_tag "AMCP-Component-Diagram.jpeg" %>
 
 
 
 # Further Readings
 
-TLE Data: 
+## TLE Data: 
 
 # Important Concepts 
 
-Satellite Footprint : 
+## Satellite Footprint : 
 
 A satellite being tracked as it orbits the earth needs to be in direct line of sight with a ground station in order to be detected, and to send or recieving signals. A detector on the ground will have direct line of sight with the satellite when it is within the ‘footprint’ of the satellite. The footprint is a projection of the area on a map that can has direct line of sight with a satellite. The link below shows a 3D toy model of this, where a vector points to the object in question and a plane divides the sphere into that part of the sphere from which the satellite can and cannot be seen (feel free to play with the sliders).
 
@@ -253,4 +299,6 @@ https://www.geogebra.org/3d/fqgdpnfz
 This footprint can be represented by the 2D image below, where the horribly drawn circle is meant to represent a 2D even slice of the earth. The footprint can be represented by the distance to the edge of the footprint, swept around sphere, creating a circle of footprint, within which a ground station can see the satellite.
 
 <%= image_tag "Footprint-Description-Adrian.jpg" %>
+
+
 
